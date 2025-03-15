@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@utils/*": ["utils/*"],
+      "@screens/*": ["app/screens/*"],
+      "@components/*": ["app/components/*"]
+    }
+  }
+}
