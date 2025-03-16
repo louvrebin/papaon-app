@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { isValidEmail } from "@utils/validation";
+import CustomButton from "../../components/CustomButton";
 
 
 const LoginScreen = () => {
@@ -33,22 +34,26 @@ const LoginScreen = () => {
         placeholder="이메일 입력"
         value={email}
         onChangeText={setEmail}
-        style={inputStyle}
+        style={{ width: "100%", borderWidth: 1, borderColor: "#ccc", padding: 10, borderRadius: 5, marginBottom: 10 }}
       />
       <TextInput
         placeholder="비밀번호 입력"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-        style={inputStyle}
+        style={{ width: "100%", borderWidth: 1, borderColor: "#ccc", padding: 10, borderRadius: 5, marginBottom: 10 }}
       />
 
-      <TouchableOpacity onPress={handleLogin} style={buttonStyle}>
+      <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: "#007bff", padding: 10, borderRadius: 5, alignItems: "center", width: "100%" }}>
         <Text style={{ color: "white" }}>로그인</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
         <Text style={{ color: "blue", marginTop: 10 }}>비밀번호를 잊으셨나요?</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate("GoogleSignIn")} style={{ marginTop: 20 }}>
+        <Text style={{ color: "green" }}>Google 로그인</Text>
       </TouchableOpacity>
     </View>
   );
